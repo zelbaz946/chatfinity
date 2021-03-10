@@ -22,7 +22,7 @@ app.get('/secret', authController.verifyUser, (req, res) => {
   return res.status(200).json('here is some secret info!');
 });
 
-//I have an issue with this line because it's blocking the dev testing
+//Need to have the index page not be contingent on production vs dev
 
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.join(__dirname, '../build/')));
