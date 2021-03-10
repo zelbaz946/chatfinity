@@ -9,6 +9,10 @@
     "dev": "NODE_ENV=development nodemon server/server.js & NODE_ENV=development webpack serve",
     "test": "jest"
   },
+  "jest": {
+    "globalSetup": "./jest-setup.js",
+    "globalTeardown": "./jest-teardown.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
