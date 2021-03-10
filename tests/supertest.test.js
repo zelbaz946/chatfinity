@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 const request = require('supertest');
 
-const app = '../server/server.js';
+const server = 'http://localhost:3000';
 
 describe('/', () => {
   describe('GET', () => {
     it('responds with 200 status', () => {
-      return request(app).get('/').expect(200)
+      return request(server).get('/').expect(200)
     })
   })
 })

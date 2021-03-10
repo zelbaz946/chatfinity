@@ -22,13 +22,18 @@ app.get('/secret', authController.verifyUser, (req, res) => {
   return res.status(200).json('here is some secret info!');
 });
 
+//I have an issue with this line because it's blocking the dev testing
+
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.join(__dirname, '../build/')));
 
   app.get('/', (req, res) =>
     res.status(200).sendFile(path.join(__dirname, '../index.html'))
   );
+  
 }
+
+
 
 app.get('*', (req, res) => {
   return res.status(404).json();
