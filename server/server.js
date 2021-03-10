@@ -26,13 +26,11 @@ app.get('/secret', authController.verifyUser, (req, res) => {
 
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.join(__dirname, '../build/')));
-
-  app.get('/', (req, res) =>
-    res.status(200).sendFile(path.join(__dirname, '../index.html'))
-  );
-  
 }
 
+ app.get('/', (req, res) =>
+    res.status(200).sendFile(path.join(__dirname, '../index.html'))
+  );
 
 
 app.get('*', (req, res) => {
